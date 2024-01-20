@@ -27,7 +27,7 @@ struct ScannerView: UIViewControllerRepresentable {
             self.scannerView = scannerView
         }
         func didFind(barcode: String) {
-            //scannedCode = barcode
+            scannerView.scannedCode = barcode
         }
             
         func didSurface(error: CameraError) {
