@@ -10,8 +10,8 @@ import AVFoundation
 
 enum CameraError: String {
     
-    case invalidDeviceInput = "Something is wrong with the camera. We are not able to capture the input"
-    case invalidScannedValue = "The value scanned is not valid. This app scans EAN-8 and EAN-13"
+    case invalidDeviceInput
+    case invalidScannedValue
 }
 
 protocol ScannerVCDelegate: AnyObject {
@@ -108,7 +108,7 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
         }
         
         // ---------- This fuction to stop the scanner after sucsess call to reuse it ---------------
-        //------------------ without will keep running and scanning infintly ------------------------
+        //------------------ without it will keep running and scanning infintly ------------------------
         // captureSession.stopRunning()
         
         

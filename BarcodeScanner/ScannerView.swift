@@ -10,6 +10,7 @@ import SwiftUI
 struct ScannerView: UIViewControllerRepresentable {
     
     @Binding var scannedCode: String
+    @Binding var alertItem: AlertItem?
     
     func makeUIViewController(context: Context) -> ScannerVC {
         ScannerVC(scannerDelegate: context.coordinator)
@@ -31,7 +32,12 @@ struct ScannerView: UIViewControllerRepresentable {
         }
             
         func didSurface(error: CameraError) {
-            print(error.rawValue)
+            switch error {
+            case .invalidDeviceInput:
+                scannerView.alertItem = AlertContext.invaledDeviceInput
+            case .invalidScannedValue:
+                scannerView.alertItem = AlertContext.invaledScannedValue
+            }
         }
     }
 }
